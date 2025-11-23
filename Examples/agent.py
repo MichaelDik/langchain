@@ -1,19 +1,12 @@
-# pip install -qU "langchain[anthropic]" to call the model
-
 from langchain.agents import create_agent
-""" First agent from langcahin"""
+from langchain_openai import ChatOpenAI
 
-def get_weather(city: str) -> str:
-    """Get weather for a given city."""
-    return f"It's always sunny in {city}!"
-
-agent = create_agent(
-    model="claude-sonnet-4-5-20250929",
-    tools=[get_weather],
-    system_prompt="You are a helpful assistant",
+model = ChatOpenAI(
+    model="gpt-5",
+    temperature=0.1,
+    max_tokens=1000,
+    timeout=30
+    # ... (other params)
 )
-
-# Run the agent
-agent.invoke(
-    {"messages": [{"role": "user", "content": "what is the weather in sf"}]}
-)
+agent = create_agent(model)
+agent.invoke("hello")
