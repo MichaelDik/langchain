@@ -9,7 +9,7 @@ class State(TypedDict):
     
 def node_a(state: State) -> State:
     print(f"node a is receiving {state['nlist']}")
-    note = "\nHello World from Node B"
+    note = "\nHello World from Node a"
     return(State(nlist = [note]))
 
 def node_b(state: State) -> State: 
@@ -17,20 +17,14 @@ def node_b(state: State) -> State:
     note ="Sup"
     return(State(nlist = [note]))
 
-builder = StateGraph(State)
+builder = StateGraph    (State)
 builder.add_node("a", node_a)
-#builder.add_node()
 builder.add_edge(START, "a")
 builder.add_edge("a", END)
 graph = builder.compile()
 
-
-display(Image(graph.get_graph().draw_mermaid_png()))
-#print(graph.get_graph().draw_mermaid())
-
 initial_state = State(
-    nlist = ["Hello Node b, how are you?", "I am good how are you?"]
+    nlist = ["Goodbye?"]
 )
 
-graph.invoke(initial_state)
-
+display(Image(graph.get_graph().draw_mermaid_png))
