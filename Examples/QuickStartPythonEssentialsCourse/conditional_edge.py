@@ -27,8 +27,6 @@ def node_a(state: State) -> Command[Literal["b", "c", END]]:
     )
 
 
-
-
 def node_b(state: State) -> State: 
     #print(f"Node b is receiving {state['nlist']}")
     return (State(nlist = ["B"]) ) 

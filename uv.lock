@@ -1290,6 +1290,7 @@ dependencies = [
     { name = "langchain-openai" },
     { name = "langgraph" },
     { name = "langgraph-cli", extra = ["inmem"] },
+    { name = "pydantic" },
 ]
 
 [package.metadata]
@@ -1304,6 +1305,7 @@ requires-dist = [
     { name = "langchain-openai", specifier = ">=1.0.0" },
     { name = "langgraph", specifier = ">=1.0.0" },
     { name = "langgraph-cli", extras = ["inmem"], specifier = ">=0.4.0" },
+    { name = "pydantic", specifier = ">=2.12.4" },
 ]
 
 [[package]]
